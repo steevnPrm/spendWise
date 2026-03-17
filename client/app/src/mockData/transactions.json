@@ -1,0 +1,234 @@
+[
+  {
+    "id": "697ca364-87eb-4a63-8890-de59e3acb9e7",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 150,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:30:38.738Z"
+  },
+  {
+    "id": "b02da821-1868-48fd-b3cb-df307302a567",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:31:22.886Z"
+  },
+  {
+    "id": "71e06545-435e-4991-abcc-de16f4fec153",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 15000,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:31:34.515Z"
+  },
+  {
+    "id": "171d8fa4-ce71-4d19-8cdb-133880d1c8fe",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -50,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:50:20.534Z"
+  },
+  {
+    "id": "63a03c15-ec0c-464a-863b-159acf422dcc",
+    "userId": "bc8d7e6f-5a4b-3c2d-1e0f-9a8b7c6d5e4f",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:50:20.539Z"
+  },
+  {
+    "id": "1f170891-0399-4110-b696-8792273dee28",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -50,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:50:31.586Z"
+  },
+  {
+    "id": "4074e8fd-72b6-4096-a9a5-5174e19d19aa",
+    "userId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:50:31.589Z"
+  },
+  {
+    "id": "8320a44f-dd4e-43f8-8f26-29fbf3a2c7ec",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": -50000,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:50:54.317Z"
+  },
+  {
+    "id": "01434083-afe1-4cf6-8051-68741b3b0527",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 50000,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:50:54.319Z"
+  },
+  {
+    "id": "2de652cd-1554-40d3-9a94-b1e067da0222",
+    "userId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "amount": -50,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:52:33.434Z"
+  },
+  {
+    "id": "e0f64d4f-0077-4858-b5d1-a69aecfa1f04",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:52:33.436Z"
+  },
+  {
+    "id": "107795cc-8ac5-4af9-ad50-fd3758dac3ea",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -150,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:52:40.120Z"
+  },
+  {
+    "id": "6336738a-948e-45ba-95a0-f9a467990fad",
+    "userId": "bc8d7e6f-5a4b-3c2d-1e0f-9a8b7c6d5e4f",
+    "amount": 150,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:52:40.123Z"
+  },
+  {
+    "id": "541f7869-c21b-4e5e-8c61-002fc1676f67",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -5000,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:52:48.023Z"
+  },
+  {
+    "id": "a93edd4d-5dbb-4c08-9778-7134ac3c99d7",
+    "userId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "amount": 5000,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:52:48.026Z"
+  },
+  {
+    "id": "b2a2223d-4973-4e2a-8682-0147f1fa7217",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -60000,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:56:54.224Z"
+  },
+  {
+    "id": "abaf455e-54f4-4e3e-8344-d43c4ed3f2fe",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": 60000,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:56:54.226Z"
+  },
+  {
+    "id": "03d0aed6-6035-4555-a479-c48d65c96a42",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -2950,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T21:57:07.379Z"
+  },
+  {
+    "id": "62adca7e-eb73-4743-8c9e-9b5c37c13bef",
+    "userId": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "amount": 2950,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T21:57:07.381Z"
+  },
+  {
+    "id": "d43a6d5e-1f16-4fef-9eab-891e16705cb9",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": -300,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T22:02:54.091Z"
+  },
+  {
+    "id": "1931891b-df19-43a8-8b00-191054e59e02",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 300,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T22:02:54.093Z"
+  },
+  {
+    "id": "3c515267-53ce-41a3-a4ba-73ff99639e15",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -50,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T22:04:30.005Z"
+  },
+  {
+    "id": "60030cce-cbec-4591-9648-2fb4795e63ff",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T22:04:30.007Z"
+  },
+  {
+    "id": "436c3a99-7fb1-4a6c-b480-278f3d6a5259",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -50,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T22:05:14.293Z"
+  },
+  {
+    "id": "be5c0d52-6cd2-4a14-bbe1-ba7777190766",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": 50,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T22:05:14.296Z"
+  },
+  {
+    "id": "b06ea859-0d9b-48d2-a10e-70f754317e49",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": -500,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T22:06:38.667Z"
+  },
+  {
+    "id": "de0d2b52-9604-484e-91d6-47e2f9e69183",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": 500,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T22:06:38.672Z"
+  },
+  {
+    "id": "7cce5ea0-3179-4556-8141-d245308027da",
+    "userId": "550e8400-e29b-41d4-a716-446655440000",
+    "amount": -80,
+    "currency": "EUR",
+    "type": "retrait",
+    "date": "2026-03-17T22:08:20.151Z"
+  },
+  {
+    "id": "f90c5bf7-81fc-4843-b089-bcdb89b81f07",
+    "userId": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "amount": 80,
+    "currency": "EUR",
+    "type": "transaction",
+    "date": "2026-03-17T22:08:20.154Z"
+  }
+]

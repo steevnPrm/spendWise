@@ -1,0 +1,46 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "username": "jhon.doe@spendwise.com",
+    "password": "superpassword",
+    "firstName": "Jhon",
+    "lastName": "Doe",
+    "amount": 620.5,
+    "currency": "EUR",
+    "isPremium": true,
+    "lastUpdate": "2026-03-17T22:08:20.150Z"
+  },
+  {
+    "id": "a1b2c3d4-e5f6-4a5b-6c7d-8e9f0a1b2c3d",
+    "username": "bot.market@spendwise.com",
+    "password": "internal_system_pass",
+    "firstName": "Market",
+    "lastName": "Bot",
+    "amount": 109380,
+    "currency": "EUR",
+    "isPremium": false,
+    "lastUpdate": "2026-03-17T22:08:20.150Z"
+  },
+  {
+    "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "username": "amazon.refund@service.com",
+    "password": "internal_system_pass",
+    "firstName": "Amazon",
+    "lastName": "Refund",
+    "amount": 57950,
+    "currency": "EUR",
+    "isPremium": false,
+    "lastUpdate": "2026-03-17T21:57:07.377Z"
+  },
+  {
+    "id": "bc8d7e6f-5a4b-3c2d-1e0f-9a8b7c6d5e4f",
+    "username": "edf.energy@service.com",
+    "password": "internal_system_pass",
+    "firstName": "EDF",
+    "lastName": "Services",
+    "amount": 15600.75,
+    "currency": "EUR",
+    "isPremium": false,
+    "lastUpdate": "2026-03-17T21:52:40.119Z"
+  }
+]
