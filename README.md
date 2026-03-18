@@ -66,6 +66,9 @@ L'application sera accessible sur : **http://localhost:3000**
 
 ---
 
+## Version déployée
+- lien : https://spend-wise-self.vercel.app/
+
 ## 🧪 Documentation de l'API
 
 ### 1. Effectuer une transaction
