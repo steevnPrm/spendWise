@@ -1,12 +1,15 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-
+import { kv } from '@vercel/kv';
 
 export class HistoryService {
-    private readonly historyPath = path.join(process.cwd(), 'app', 'src', 'mockData', 'transactions.json');
+    private readonly HISTORY_KEY = 'transactions';
+
     async getHistory() {
-        const content = await fs.readFile(this.historyPath, 'utf8');
-        const history: any[] = JSON.parse(content);
-        return history;
+        try {
+            const history = await kv.get<any[]>(this.HISTORY_KEY);
+            return history || [];
+        } catch (error) {
+            console.error("Erreur lors de la récupération de l'historique KV:", error);
+            return [];
+        }
     }
 }

@@ -1,9 +1,8 @@
-import { promises as fs } from 'fs';
-import path from 'path';
 import { from, of, Observable } from 'rxjs'
 import { map, switchMap, catchError } from 'rxjs/operators'
 import { UserModel } from '../utils/userMapper'
 import { v4 as uuidv4 } from 'uuid';
+import { kv } from '@vercel/kv';
 
 export class TransactionService {
     constructor(
@@ -30,56 +29,42 @@ export interface TransactionModel {
 }
 
 export class CalculateService extends TransactionService {
-    private readonly filePath = path.join(process.cwd(), 'app', 'src', 'mockData', 'users.json');
-    private readonly historyPath = path.join(process.cwd(), 'app', 'src', 'mockData', 'transactions.json');
+    private readonly USERS_KEY = 'users';
+    private readonly HISTORY_KEY = 'transactions';
 
     constructor(n1: number, n2: number) {
         super(n1, n2);
     }
 
     public getUpdatedUser$(userId: string, amountToAdd: number): Observable<number | null> {
-        return from(fs.readFile(this.filePath, 'utf8')).pipe(
-
-            map((content: string) => JSON.parse(content) as UserModel[]),
-
-
-            map((users: UserModel[]) => {
-                const user = users.find((u: UserModel) => u.id === userId);
+        return from(kv.get<UserModel[]>(this.USERS_KEY)).pipe(
+            map((users) => {
+                const allUsers = users || [];
+                const user = allUsers.find((u: UserModel) => u.id === userId);
                 if (!user) throw new Error("Utilisateur introuvable");
-                return { allUsers: users, targetUser: user };
+                return { allUsers, targetUser: user };
             }),
-
-
-            map(({ allUsers, targetUser }: { allUsers: UserModel[], targetUser: UserModel }) => {
+            map(({ allUsers, targetUser }) => {
                 const previousBalance = Number(targetUser.amount);
                 const transactionAmount = Number(amountToAdd);
 
                 if (isNaN(previousBalance) || isNaN(transactionAmount)) {
-                    throw new Error(`Calcul avorté : Valeurs non numériques détectées (Solde: ${targetUser.amount}, Ajout: ${amountToAdd})`);
+                    throw new Error(`Calcul avorté : Valeurs non numériques`);
                 }
 
-                const newBalance = previousBalance + transactionAmount;
-                targetUser.amount = Number(newBalance.toFixed(2));
-
+                targetUser.amount = Number((previousBalance + transactionAmount).toFixed(2));
                 targetUser.lastUpdate = new Date().toISOString();
-
-                console.log("Ancien solde :", previousBalance);
-                console.log("Montant ajouté :", transactionAmount);
-                console.log("Nouveau solde (sécurisé) :", targetUser.amount);
 
                 return allUsers;
             }),
-
-
             switchMap((updatedUsers: UserModel[]) =>
-                from(fs.writeFile(this.filePath, JSON.stringify(updatedUsers, null, 2))).pipe(
+                from(kv.set(this.USERS_KEY, updatedUsers)).pipe(
                     map(() => {
                         const user = updatedUsers.find((u: UserModel) => u.id === userId);
                         return user ? user.amount : null;
                     })
                 )
             ),
-
             catchError((err: Error) => {
                 console.error("Erreur flux financier:", err.message);
                 return of(null);
@@ -90,7 +75,7 @@ export class CalculateService extends TransactionService {
     public async toHistory(userId: string, amountToAdd: number) {
         const transaction: TransactionModel = {
             id: uuidv4(),
-            userId: userId,
+            userId,
             amount: amountToAdd,
             currency: "EUR",
             type: amountToAdd > 0 ? "transaction" : "retrait",
@@ -98,37 +83,31 @@ export class CalculateService extends TransactionService {
         }
 
         try {
-            const content = await fs.readFile(this.historyPath, 'utf8');
-            const history = content.trim() ? JSON.parse(content) : [];
+            const history = await kv.get<TransactionModel[]>(this.HISTORY_KEY) || [];
             history.push(transaction);
-            await fs.writeFile(this.historyPath, JSON.stringify(history, null, 2));
+            await kv.set(this.HISTORY_KEY, history);
         } catch (error) {
-            console.error("Erreur lors de l'écriture de l'historique :", error);
+            console.error("Erreur historique KV :", error);
         }
-
     }
 
-
     async transferBetweenUsers(fromId: string, toId: string, amount: number) {
-        const rawData = await fs.readFile(this.filePath, 'utf8');
-        const users: UserModel[] = JSON.parse(rawData);
+        const users = await kv.get<UserModel[]>(this.USERS_KEY) || [];
 
         const sender = users.find(u => u.id === fromId);
         const receiver = users.find(u => u.id === toId);
 
-        if (!sender || !receiver) {
-            throw new Error("L'expéditeur ou le destinataire est introuvable.");
-        }
-        if (sender.amount < amount) {
-            throw new Error("Solde insuffisant pour effectuer ce virement.");
-        }
+        if (!sender || !receiver) throw new Error("Utilisateur introuvable.");
+        if (sender.amount < amount) throw new Error("Solde insuffisant.");
+
         sender.amount = Number((Number(sender.amount) - amount).toFixed(2));
         receiver.amount = Number((Number(receiver.amount) + amount).toFixed(2));
 
         const now = new Date().toISOString();
-        sender.lastUpdate = now;
-        receiver.lastUpdate = now;
-        await fs.writeFile(this.filePath, JSON.stringify(users, null, 2));
+        sender.lastUpdate = receiver.lastUpdate = now;
+
+        await kv.set(this.USERS_KEY, users);
+
         await this.toHistory(fromId, -amount);
         await this.toHistory(toId, amount);
 
